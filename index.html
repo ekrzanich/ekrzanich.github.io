@@ -33,6 +33,7 @@ function populate(jsonpObj){
  	//set to lowercase and replace the spaces with %20
  	var search = document.getElementById('searchField').value.toLowerCase();
  	var replacedURL = search.replace(/ /g, "%20");
+ 	document.getElementById('loadURL').src = "";
  	document.getElementById('loadURL').src = baseURL + replacedURL + callbackURL;
  }
 
