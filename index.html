@@ -2,7 +2,8 @@
 <html>
 <body>
 
-	<button onclick="searchStreams()">Search</button>
+	<input type="text" name="searchField" placeholder="Search query...">
+	<button onclick="searchStreams()">Search</button> </br>
 
 	<p id="total">TOTAL</p>
 	<p id="streams">STREAMS</p>
@@ -25,11 +26,6 @@ function getJSONP(url, success) {
 
 }
 
-var textfield = document.createElement("INPUT");
-textfield.setAttribute("type", "text");
-textfield.setAttribute("value", "Search query...");
-document.body.appendChild(textfield);
-
 function myCallback(jsonpObj){
     var text = '';
 
@@ -45,7 +41,7 @@ function myCallback(jsonpObj){
 
  function searchStreams() {
  	// Build the url
- 	textfield.setAttribute("value", "Search query...")
+ 	textfield.setAttribute("placeholder", "Search query...");
  }
 
 </script>
