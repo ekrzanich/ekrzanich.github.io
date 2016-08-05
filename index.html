@@ -29,12 +29,15 @@ function getJSONP(url, success) {
 
 function myCallback(jsonpObj){
             var text = '';
-            //for(var i=0;i<len;i++){
-                //twitch = jsonpObj[i];
-                //text += '<p><img src = "' + twitch.user.profile_image_url_https +'"/>' + twitterEntry['text'] + '</p>'
-            //}
             text += "Total: " + jsonpObj['_total'] + "\n";
-            document.getElementById('total').innerHTML = "Total: " + text;
+
+            var len = jsonpObj['_streams'].length;
+            for(var i=0;i<len;i++){
+                twitch = jsonpObj['streams'][i];
+                text += '<p><img src = "' + twitch['preview']['medium'] +'"/>' + twitch['channel']['display_name'] + '</p>'
+            }
+
+            document.getElementById('total').innerHTML = text;
         }
 
 </script>
