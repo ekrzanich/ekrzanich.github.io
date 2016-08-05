@@ -17,13 +17,13 @@ function getJSONP(url, success) {
         success && success(data);
     };
 
-    //script.src = url.replace('callback=?', 'callback=' + ud);
+    console.log(data)
     head.appendChild(script);
 
 }
 
 getJSONP('https://api.twitch.tv/kraken/search/streams?q=starcraft', function(data){
-    document.getElementById('total').innerHTML = "Total: " + jsonData.containsKey("_total") ? Integer.parseInt(jsonData.get("_total").toString()) : 0;
+    document.getElementById('total').innerHTML = "Total: " + data.containsKey("_total") ? Integer.parseInt(data.get("_total").toString()) : 0;
 });
 
 </script>
