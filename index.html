@@ -9,24 +9,12 @@
 	<p id="streams">STREAMS</p>
 
 <script>
-function getJSONP(url, success) {
 
-    var ud = '_' + +new Date,
-        script = document.createElement('script'),
-        head = document.getElementsByTagName('head')[0] 
-               || document.documentElement;
+var baseURL = "https://api.twitch.tv/kraken/search/streams?q=";
+var callbackURL = ".json?count=10&callback=populate";
 
-    window[ud] = function(data) {
-        head.removeChild(script);
-        success && success(data);
-    };
 
-    script.src = url.replace('callback=?', 'callback=' + ud);
-    head.appendChild(script);
-
-}
-
-function myCallback(jsonpObj){
+function populate(jsonpObj){
     var text = '';
 
     var len = jsonpObj.streams.length;
@@ -42,13 +30,14 @@ function myCallback(jsonpObj){
  function searchStreams() {
  	// Build the url
  	document.getElementById('searchField').setAttribute("placeholder", "Search query...");
+ 	//set to lowercase and replace the spaces with %20
  	var search = document.getElementById('searchField').value.toLowerCase();
  	var appendURL = search.replace(/ /g, "%20");
- 	alert(appendURL);
+ 	script.src = baseURL + baseURL + callbackURL;
  }
 
 </script>
-<script type="text/javascript" src="https://api.twitch.tv/kraken/search/streams?q=starcraft.json?count=100&callback=myCallback"></script>
+<!-- <script type="text/javascript" src="https://api.twitch.tv/kraken/search/streams?q=starcraft.json?count=10&callback=populate"></script> -->
 
 </body>
 </html>
