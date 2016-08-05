@@ -3,6 +3,7 @@
 <body>
 
 	<p id="total">TOTAL</p>
+	<p id="streams">STREAMS</p>
 
 <script>
 function getJSONP(url, success) {
@@ -29,7 +30,7 @@ function getJSONP(url, success) {
 
 function myCallback(jsonpObj){
             var text = '';
-            text += "Total: " + jsonpObj['_total'] + "\n";
+            text +=  jsonpObj.result;
 
             // var len = jsonpObj['_streams'].length;
             // for(var i=0;i<len;i++){
@@ -37,7 +38,8 @@ function myCallback(jsonpObj){
             //     text += '<p><img src = "' + twitch['preview']['medium'] +'"/>' + twitch['channel']['display_name'] + '</p>'
             // }
 
-            document.getElementById('total').innerHTML = text;
+            document.getElementById('total').innerHTML = "Total results: " + jsonpObj['_total'];
+            document.getElementById('streams').innerHTML = text;
         }
 
 </script>
