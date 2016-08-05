@@ -34,7 +34,7 @@ function myCallback(dataWeGotViaJsonp){
                 //twitch = dataWeGotViaJsonp[i];
                 //text += '<p><img src = "' + twitch.user.profile_image_url_https +'"/>' + twitterEntry['text'] + '</p>'
             //}
-            text += dataWeGotViaJsonp[0]['_total'];
+            text += dataWeGotViaJsonp['_total'];
             document.getElementById('total').innerHTML = text;
         }
 
