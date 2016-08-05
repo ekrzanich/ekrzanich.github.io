@@ -42,6 +42,9 @@ function myCallback(jsonpObj){
  function searchStreams() {
  	// Build the url
  	document.getElementById('searchField').setAttribute("placeholder", "Search query...");
+ 	var search = document.getElementById('searchField').getAttribute("value").toLowerCase();
+ 	var appendURL = search.replace(/ /g, "%20");
+ 	document.appendChild(appendURL);
  }
 
 </script>
