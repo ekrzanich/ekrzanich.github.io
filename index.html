@@ -21,7 +21,7 @@ function getJSONP(url, success) {
 }
 
 getJSONP('https://api.twitch.tv/kraken/search/streams?q=starcraft', function(data){
-    document.getElementById('total').innerHTML = data.total);
+    document.getElementById('total').innerHTML = data._total);
 });
 
 </script>
