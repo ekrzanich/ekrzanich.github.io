@@ -27,19 +27,18 @@ function getJSONP(url, success) {
 //     console.log(data);
 // });
 
-function myCallback(dataWeGotViaJsonp){
+function myCallback(jsonpObj){
             var text = '';
-            var len = dataWeGotViaJsonp.length;
             //for(var i=0;i<len;i++){
-                //twitch = dataWeGotViaJsonp[i];
+                //twitch = jsonpObj[i];
                 //text += '<p><img src = "' + twitch.user.profile_image_url_https +'"/>' + twitterEntry['text'] + '</p>'
             //}
-            text += dataWeGotViaJsonp['_total'];
-            document.getElementById('total').innerHTML = text;
+            text += "Total: " + jsonpObj['_total'] + "\n";
+            document.getElementById('total').innerHTML = "Total: " + text;
         }
 
 </script>
-<script type="text/javascript" src="https://api.twitch.tv/kraken/search/streams?q=starcraft.json?count=10&callback=myCallback"></script>
+<script type="text/javascript" src="https://api.twitch.tv/kraken/search/streams?q=starcraft.json?count=100&callback=myCallback"></script>
 
 </body>
 </html>
