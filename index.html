@@ -17,7 +17,7 @@ function getJSONP(url, success) {
         success && success(data);
     };
 
-    //script.src = url.replace('callback=?', 'callback=' + ud);
+    script.src = url.replace('callback=?', 'callback=' + ud);
     head.appendChild(script);
 
 }
