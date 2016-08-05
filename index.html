@@ -30,13 +30,12 @@ function getJSONP(url, success) {
 
 function myCallback(jsonpObj){
             var text = '';
-            text +=  jsonpObj.streams.length;
 
-            // var len = jsonpObj['_streams'].length;
-            // for(var i=0;i<len;i++){
-            //     twitch = jsonpObj['streams'][i];
-            //     text += '<p><img src = "' + twitch['preview']['medium'] +'"/>' + twitch['channel']['display_name'] + '</p>'
-            // }
+            var len = jsonpObj.streams.length;
+            for(var i=0;i<len;i++){
+                twitch = jsonpObj.streams[i];
+                text += '<p><img src = "' + twitch['preview']['medium'] +'"/>' + twitch['channel']['display_name'] + '</p>'
+            }
 
             document.getElementById('total').innerHTML = "Total results: " + jsonpObj['_total'];
             document.getElementById('streams').innerHTML = text;
