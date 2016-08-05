@@ -22,13 +22,24 @@ function getJSONP(url, success) {
 
 }
 
-getJSONP('https://api.twitch.tv/kraken/search/streams?q=starcraft', function(data){
-    document.getElementById('total').innerHTML = "Total: " + data.containsKey("_total") ? Integer.parseInt(data.get("_total").toString()) : 0;
-    console.log(data);
-});
+// getJSONP('https://api.twitch.tv/kraken/search/streams?q=starcraft', function(data){
+//     document.getElementById('total').innerHTML = "Total: " + data.containsKey("_total") ? Integer.parseInt(data.get("_total").toString()) : 0;
+//     console.log(data);
+// });
+
+function myCallback(dataWeGotViaJsonp){
+            var text = '';
+            var len = dataWeGotViaJsonp.length;
+            //for(var i=0;i<len;i++){
+                //twitch = dataWeGotViaJsonp[i];
+                //text += '<p><img src = "' + twitch.user.profile_image_url_https +'"/>' + twitterEntry['text'] + '</p>'
+            //}
+            text += dataWeGotViaJsonp[0]['_total'];
+            document.getElementById('total').innerHTML = text;
+        }
 
 </script>
-<script type="text/javascript" src="https://api.twitch.tv/kraken/search/streams?q=starcraft"></script>
+<script type="text/javascript" src="https://api.twitch.tv/kraken/search/streams?q=starcraft.json?count=10&callback=myCallback"></script>
 
 </body>
 </html>
