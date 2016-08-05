@@ -2,6 +2,10 @@
 <html>
 <body>
 
+.stream-div {
+color: red;  
+}
+
 	<input type="text" id="searchField" placeholder="Search query...">
 	<button onclick="searchStreams()">Search</button> </br>
 
@@ -13,6 +17,13 @@
 var baseURL = "https://api.twitch.tv/kraken/search/streams?q=";
 var callbackURL = ".json?count=10&callback=populate";
 
+function createStreamDiv(streamData){
+	var streamDiv = document.createElement("div");
+    streamDiv.className = "stream-div";
+    streamDiv.appendChild('<p><img src = "' + twitch['preview']['small'] +'"/>');
+    streamDiv.appendChild(twitch['channel']['display_name']);
+    document.getElementById('streams').appendChild(streamDiv);
+}
 
 function populate(jsonpObj){
     var text = '';
@@ -20,19 +31,19 @@ function populate(jsonpObj){
     var len = jsonpObj.streams.length;
     for(var i=0;i<len;i++){
         twitch = jsonpObj.streams[i];
+        createStreamDiv(twitch);
         text += '<p><img src = "' + twitch['preview']['small'] +'"/>' + twitch['channel']['display_name'] + '</p>'
     }
 
     document.getElementById('total').innerHTML = "Total results: " + jsonpObj['_total'];
-    document.getElementById('streams').innerHTML = text;
  }
 
  function searchStreams() {
- 	// Build the url
- 	document.getElementById('searchField').setAttribute("placeholder", "Search query...");
- 	//set to lowercase and replace the spaces with %20
+ 	// Set to lowercase and replace the spaces with %20
  	var search = document.getElementById('searchField').value.toLowerCase();
  	var replacedURL = search.replace(/ /g, "%20");
+
+ 	// Create a new script to call the populate function
  	var dynamicScript = document.createElement("script");
 	dynamicScript.src = baseURL + replacedURL + callbackURL;
 	document.getElementById('streams').appendChild(dynamicScript);
