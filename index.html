@@ -35,7 +35,7 @@ function populate(jsonpObj){
  	var replacedURL = search.replace(/ /g, "%20");
  	var dynamicScript = document.createElement("script");
 	dynamicScript.src = baseURL + replacedURL + callbackURL;
-	document.getElementById('streams').appendChild(newScript);
+	document.getElementById('streams').appendChild(dynamicScript);
  }
 
 </script>
