@@ -2,6 +2,8 @@
 <html>
 <body>
 
+	<button onclick="searchStreams()">Search</button>
+
 	<p id="total">TOTAL</p>
 	<p id="streams">STREAMS</p>
 
@@ -23,23 +25,28 @@ function getJSONP(url, success) {
 
 }
 
-// getJSONP('https://api.twitch.tv/kraken/search/streams?q=starcraft', function(data){
-//     document.getElementById('total').innerHTML = "Total: " + data.containsKey("_total") ? Integer.parseInt(data.get("_total").toString()) : 0;
-//     console.log(data);
-// });
+var textfield = document.createElement("INPUT");
+textfield.setAttribute("type", "text");
+textfield.setAttribute("value", "Search query...");
+document.body.appendChild(textfield);
 
 function myCallback(jsonpObj){
-            var text = '';
+    var text = '';
 
-            var len = jsonpObj.streams.length;
-            for(var i=0;i<len;i++){
-                twitch = jsonpObj.streams[i];
-                text += '<p><img src = "' + twitch['preview']['medium'] +'"/>' + twitch['channel']['display_name'] + '</p>'
-            }
+    var len = jsonpObj.streams.length;
+    for(var i=0;i<len;i++){
+        twitch = jsonpObj.streams[i];
+        text += '<p><img src = "' + twitch['preview']['small'] +'"/>' + twitch['channel']['display_name'] + '</p>'
+    }
 
-            document.getElementById('total').innerHTML = "Total results: " + jsonpObj['_total'];
-            document.getElementById('streams').innerHTML = text;
-        }
+    document.getElementById('total').innerHTML = "Total results: " + jsonpObj['_total'];
+    document.getElementById('streams').innerHTML = text;
+ }
+
+ function searchStreams() {
+ 	// Build the url
+ 	textfield.setAttribute("value", "Search query...")
+ }
 
 </script>
 <script type="text/javascript" src="https://api.twitch.tv/kraken/search/streams?q=starcraft.json?count=100&callback=myCallback"></script>
