@@ -31,11 +31,11 @@ function myCallback(jsonpObj){
             var text = '';
             text += "Total: " + jsonpObj['_total'] + "\n";
 
-            var len = jsonpObj['_streams'].length;
-            for(var i=0;i<len;i++){
-                twitch = jsonpObj['streams'][i];
-                text += '<p><img src = "' + twitch['preview']['medium'] +'"/>' + twitch['channel']['display_name'] + '</p>'
-            }
+            // var len = jsonpObj['_streams'].length;
+            // for(var i=0;i<len;i++){
+            //     twitch = jsonpObj['streams'][i];
+            //     text += '<p><img src = "' + twitch['preview']['medium'] +'"/>' + twitch['channel']['display_name'] + '</p>'
+            // }
 
             document.getElementById('total').innerHTML = text;
         }
