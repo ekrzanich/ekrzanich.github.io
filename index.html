@@ -28,7 +28,7 @@ function decreasePage(){
 }
 
 function increasePage(){
-	if( currentSearchURL != "" && currentOffset < totalPages )
+	if( currentSearchURL != "" && currentOffset < (totalPages * 10) )
 	{
 		currentOffset += 10;
 		changePage();
