@@ -19,7 +19,7 @@ function createStreamDiv(streamData){
     // Image
     var imageDiv = document.createElement("div");
     streamDiv.appendChild(imageDiv);
-    imageDiv.display = "inline-block";
+    imageDiv.style = "float:left";
     var image = document.createElement("P");
     image.innerHTML = '<p><img src = "' + twitch['preview']['small'] +'"/>';
     imageDiv.appendChild(image);
@@ -27,7 +27,7 @@ function createStreamDiv(streamData){
     // Text
     var textDiv = document.createElement("div");
     streamDiv.appendChild(textDiv);
-    textDiv.display = "inline-block";
+    textDiv.style = "float:left";
     var title = document.createElement("h1");
     title.text = twitch['channel']['display_name'];
     document.getElementById('streams').appendChild(streamDiv);
