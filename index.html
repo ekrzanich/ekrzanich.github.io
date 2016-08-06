@@ -6,7 +6,7 @@
 	<button onclick="searchStreams()">Search</button> </br>
 
 	<p id="total"></p>
-	<div id="streams"></div>
+	<div id="streams" align = "center"></div>
 
 <script id="updateSearch">
 
@@ -16,12 +16,20 @@ var callbackURL = ".json?count=10&callback=populate";
 function createStreamDiv(streamData){
 	var streamDiv = document.createElement("div");
     streamDiv.className = "stream-div";
+    // Image
+    var imageDiv = document.createElement("div");
+    streamDiv.appendChild(imageDiv);
+    imageDiv.display = "inline-block";
     var image = document.createElement("P");
     image.innerHTML = '<p><img src = "' + twitch['preview']['small'] +'"/>';
-    var title = document.createElement("P");
-    title.innerHTML = twitch['channel']['display_name'];
-    streamDiv.appendChild(image);
-    streamDiv.appendChild(title);
+    imageDiv.appendChild(image);
+
+    // Text
+    var textDiv = document.createElement("div");
+    streamDiv.appendChild(textDiv);
+    textDiv.display = "inline-block";
+    var title = document.createElement("h1");
+    title.text = twitch['channel']['display_name'];
     document.getElementById('streams').appendChild(streamDiv);
 }
 
