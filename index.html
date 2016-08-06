@@ -6,7 +6,14 @@
 	<button onclick="searchStreams()">Search</button> </br>
 
 	<p id="total"></p>
-	<div id="streams"></div>
+	<div id="streams">
+		<div id="streamNode">
+			<p id="image"></p>
+			<p id="streamDisplayName"></p>
+			<p id="gameNameAndViews"></p>
+			<p id="streamDescription"></p>
+		</div>
+	</div>
 
 <script id="updateSearch">
 
@@ -14,14 +21,10 @@ var baseURL = "https://api.twitch.tv/kraken/search/streams?q=";
 var callbackURL = ".json?count=10&callback=populate";
 
 function createStreamDiv(streamData){
-	var streamDiv = document.createElement("div");
-    streamDiv.className = "stream-div";
-    var image = document.createElement("P");
-    image.innerHTML = '<p><img src = "' + twitch['preview']['small'] +'"/>';
-    var title = document.createElement("P");
-    title.innerHTML = twitch['channel']['display_name'];
-    streamDiv.appendChild(image);
-    streamDiv.appendChild(title);
+	var streams = document.getElementById("streams");
+	var streamDiv = streams.getElementById("streamNode").cloneNode(true);
+    streamDiv.getElementById("image").innerHTML = '<p><img src = "' + twitch['preview']['small'] +'"/>';
+    streamDiv.getElementById("streamDisplayName").innerHTML = twitch['channel']['display_name'];
     document.getElementById('streams').appendChild(streamDiv);
 }
 
