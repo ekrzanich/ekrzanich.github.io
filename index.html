@@ -20,7 +20,7 @@ var currentSearchURL = "";
 var totalPages = 0;
 
 function decreasePage(){
-	if( currentPage > 1 )
+	if( currentSearchURL != "" && currentPage > 1 )
 	{
 		currentPage -= 1;
 	}
@@ -29,7 +29,7 @@ function decreasePage(){
 }
 
 function increasePage(){
-	if( currentPage < totalPages )
+	if( currentSearchURL != "" && currentPage < totalPages )
 	{
 		currentPage += 1;
 	}
@@ -89,7 +89,7 @@ function populate(jsonpObj){
  	{
  		pageURL = "page=" + currentPage + "&";
  	}
-	dynamicScript.src = baseURL + currentPage + searchURL + callbackURL;
+	dynamicScript.src = baseURL + currentPage + currentSearchURL + callbackURL;
 	document.getElementById('streams').appendChild(dynamicScript);
 
 	resetStreams();
