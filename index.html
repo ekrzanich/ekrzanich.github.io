@@ -21,8 +21,8 @@ var baseURL = "https://api.twitch.tv/kraken/search/streams?q=";
 var callbackURL = ".json?count=10&callback=populate";
 
 function createStreamDiv(streamData){
-	var streams = document.getElementById("streams");
-	var streamDiv = streams.streamNode.content.cloneNode(true);
+	var streamNode = document.getElementById("streamNode");
+	var streamDiv = streamNode.cloneNode(true);
     streamDiv.image.innerHTML = '<p><img src = "' + twitch['preview']['small'] +'"/>';
     streamDiv.streamDisplayName.text = twitch['channel']['display_name'];
     document.getElementById('streams').appendChild(streamDiv);
