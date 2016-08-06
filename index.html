@@ -83,11 +83,7 @@ function populate(jsonpObj){
  	resetStreams();
  	// Create a new script to call the populate function
  	var dynamicScript = document.createElement("script");
- 	var pageURL = "";
- 	if( currentOffset > 10 )
- 	{
- 		pageURL = "offset=" + currentOffset + "&";
- 	}
+ 	var pageURL = "offset=" + currentOffset + "&";
 	dynamicScript.src = baseURL + pageURL + currentSearchURL + callbackURL;
 	document.getElementById('streams').appendChild(dynamicScript);
  }
