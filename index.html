@@ -13,28 +13,27 @@
 
 <script id="updateSearch">
 
-var baseURL = "https://api.twitch.tv/kraken/search/streams?";
-var callbackURL = ".json?count=10&callback=populate";
-var currentPage = 1;
+var baseURL = "https://api.twitch.tv/kraken/search/streams?limit=10&";
+var callbackURL = ".json?callback=populate";
+?limit=10&offset=70
+var currentOffset = 0;
 var currentSearchURL = "";
 var totalPages = 0;
 
 function decreasePage(){
-	if( currentSearchURL != "" && currentPage > 1 )
+	if( currentSearchURL != "" && currentOffset > 10 )
 	{
-		currentPage -= 1;
+		currentOffset -= 10;
+		changePage();
 	}
-
-	changePage();
 }
 
 function increasePage(){
-	if( currentSearchURL != "" && currentPage < totalPages )
+	if( currentSearchURL != "" && currentOffset < totalPages )
 	{
-		currentPage += 1;
+		currentOffset += 10;
+		changePage();
 	}
-
-	changePage();
 }
 
 function createStreamDiv(streamData){
@@ -74,6 +73,7 @@ function populate(jsonpObj){
     }
 
     document.getElementById('total').innerHTML = "Total results: " + total;
+    document.getElementById('page').innerHTML = ((currentOffset / 10) + 1) + "/" + totalPages;
  }
 
  function resetStreams(){
@@ -85,9 +85,9 @@ function populate(jsonpObj){
  	// Create a new script to call the populate function
  	var dynamicScript = document.createElement("script");
  	var pageURL = "";
- 	if( currentPage > 1 )
+ 	if( currentOffset > 10 )
  	{
- 		pageURL = "page=" + currentPage + "&";
+ 		pageURL = "offset=" + currentOffset + "&";
  	}
 	dynamicScript.src = baseURL + pageURL + currentSearchURL + callbackURL;
 	document.getElementById('streams').appendChild(dynamicScript);
@@ -96,7 +96,7 @@ function populate(jsonpObj){
  }
 
  function searchStreams() {
- 	currentPage = 1;
+ 	currentOffset = 0;
  	// Set to lowercase and replace the spaces with %20
  	var search = document.getElementById('searchField').value.toLowerCase();
  	currentSearchURL = "q=" + search.replace(/ /g, "%20");
