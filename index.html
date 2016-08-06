@@ -52,6 +52,9 @@ function createStreamDiv(streamData){
     var title = document.createElement("H1");
     title.innerText = twitch['channel']['display_name'];
     textDiv.appendChild(title);
+    var nameAndViewers = document.createElement("P");
+    nameAndViewers.innerText = twitch['game'] + " - " + twitch['viewers'];
+    textDiv.appendChild(nameAndViewers);
     document.getElementById('streams').appendChild(streamDiv);
     document.getElementById('streams').appendChild(linebreak);
     streamDiv.clear
