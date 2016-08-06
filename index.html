@@ -89,7 +89,7 @@ function populate(jsonpObj){
  	{
  		pageURL = "page=" + currentPage + "&";
  	}
-	dynamicScript.src = baseURL + currentPage + currentSearchURL + callbackURL;
+	dynamicScript.src = baseURL + pageURL + currentSearchURL + callbackURL;
 	document.getElementById('streams').appendChild(dynamicScript);
 
 	resetStreams();
