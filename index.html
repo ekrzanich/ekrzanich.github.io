@@ -29,8 +29,8 @@ function createStreamDiv(streamData){
     var textDiv = document.createElement("div");
     streamDiv.appendChild(textDiv);
     textDiv.style = "float:left";
-    var title = document.createElement("h1");
-    title.text = twitch['channel']['display_name'];
+    var title = document.createElement("H1");
+    title.innerText = twitch['channel']['display_name'];
     document.getElementById('streams').appendChild(streamDiv);
     document.getElementById('streams').appendChild(linebreak);
 }
