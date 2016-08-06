@@ -6,12 +6,36 @@
 	<button onclick="searchStreams()">Search</button> </br>
 
 	<p id="total"></p>
+	<button onclick="decreasePage()">Prev</button>
+	<p id="page">1/1</p>
+	<button onclick="increasePage()">Next</button> </br>
 	<div id="streams" align = "center"></div>
 
 <script id="updateSearch">
 
-var baseURL = "https://api.twitch.tv/kraken/search/streams?q=";
+var baseURL = "https://api.twitch.tv/kraken/search/streams?";
 var callbackURL = ".json?count=10&callback=populate";
+var currentPage = 1;
+var currentSearchURL = "";
+var totalPages = 0;
+
+function decreasePage(){
+	if( currentPage > 1 )
+	{
+		currentPage -= 1;
+	}
+
+	changePage();
+}
+
+function increasePage(){
+	if( currentPage < totalPages )
+	{
+		currentPage += 1;
+	}
+
+	changePage();
+}
 
 function createStreamDiv(streamData){
 	var streamDiv = document.createElement("div");
@@ -35,30 +59,54 @@ function createStreamDiv(streamData){
 }
 
 function populate(jsonpObj){
-    var text = '';
-
     var len = jsonpObj.streams.length;
     for(var i=0;i<len;i++){
         twitch = jsonpObj.streams[i];
         createStreamDiv(twitch);
-        text += '<p><img src = "' + twitch['preview']['small'] +'"/>' + twitch['channel']['display_name'] + '</p>'
     }
 
-    document.getElementById('total').innerHTML = "Total results: " + jsonpObj['_total'];
+    var total = jsonpObj['_total'];
+    totalPages = total/10;
+    // Add a page for the left overs
+    if( total % 10 != 0 )
+    {
+    	totalPages += 1;
+    }
+
+    document.getElementById('total').innerHTML = "Total results: " + total;
+ }
+
+ function resetStreams(){
+ 	// Reset the streamsDiv
+	document.getElementById('streams').innerHTML = "";
+ }
+
+ function changePage(){
+ 	// Create a new script to call the populate function
+ 	var dynamicScript = document.createElement("script");
+ 	var pageURL = "";
+ 	if( currentPage > 1 )
+ 	{
+ 		pageURL = "page=" + currentPage + "&";
+ 	}
+	dynamicScript.src = baseURL + currentPage + searchURL + callbackURL;
+	document.getElementById('streams').appendChild(dynamicScript);
+
+	resetStreams();
  }
 
  function searchStreams() {
+ 	currentPage = 1;
  	// Set to lowercase and replace the spaces with %20
  	var search = document.getElementById('searchField').value.toLowerCase();
- 	var replacedURL = search.replace(/ /g, "%20");
+ 	currentSearchURL = "q=" + search.replace(/ /g, "%20");
 
  	// Create a new script to call the populate function
  	var dynamicScript = document.createElement("script");
-	dynamicScript.src = baseURL + replacedURL + callbackURL;
+	dynamicScript.src = baseURL + currentSearchURL + callbackURL;
 	document.getElementById('streams').appendChild(dynamicScript);
 
-	// Reset the streamsDiv
-	document.getElementById('streams').innerHTML = "";
+	resetStreams();
  }
 
 </script>
