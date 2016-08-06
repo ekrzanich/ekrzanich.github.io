@@ -9,7 +9,7 @@
 	<div id="streams">
 		<div id="streamNode">
 			<p id="image"></p>
-			<p id="streamDisplayName"></p>
+			<h1 id="streamDisplayName"></h1>
 			<p id="gameNameAndViews"></p>
 			<p id="streamDescription"></p>
 		</div>
@@ -22,9 +22,9 @@ var callbackURL = ".json?count=10&callback=populate";
 
 function createStreamDiv(streamData){
 	var streams = document.getElementById("streams");
-	var streamDiv = streams.streamNode.cloneNode(true);
+	var streamDiv = streams.streamNode.content.cloneNode(true);
     streamDiv.image.innerHTML = '<p><img src = "' + twitch['preview']['small'] +'"/>';
-    streamDiv.streamDisplayName.innerHTML = twitch['channel']['display_name'];
+    streamDiv.streamDisplayName.text = twitch['channel']['display_name'];
     document.getElementById('streams').appendChild(streamDiv);
 }
 
