@@ -51,6 +51,7 @@ function createStreamDiv(streamData){
     streamDiv.appendChild(textDiv);
     var title = document.createElement("H1");
     title.innerText = twitch['channel']['display_name'];
+    textDiv.appendChild(title);
     document.getElementById('streams').appendChild(streamDiv);
     document.getElementById('streams').appendChild(linebreak);
     streamDiv.clear
@@ -76,6 +77,7 @@ function populate(jsonpObj){
  }
 
  function changePage(){
+ 	resetStreams();
  	// Create a new script to call the populate function
  	var dynamicScript = document.createElement("script");
  	var pageURL = "";
@@ -85,8 +87,6 @@ function populate(jsonpObj){
  	}
 	dynamicScript.src = baseURL + pageURL + currentSearchURL + callbackURL;
 	document.getElementById('streams').appendChild(dynamicScript);
-
-	resetStreams();
  }
 
  function searchStreams() {
