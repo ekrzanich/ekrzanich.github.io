@@ -28,7 +28,7 @@ function decreasePage(){
 }
 
 function increasePage(){
-	if( currentSearchURL != "" && currentOffset < (totalPages * 10) )
+	if( currentSearchURL != "" && currentOffset < ((totalPages - 1) * 10) )
 	{
 		currentOffset += 10;
 		changePage();
@@ -43,7 +43,7 @@ function createStreamDiv(streamData){
     var imageDiv = document.createElement("div");
     streamDiv.appendChild(imageDiv);
     var image = document.createElement("P");
-    image.innerHTML = '<p><img src = "' + twitch['preview']['small'] +'"/>';
+    image.innerHTML = '<p><img src = "' + twitch['preview']['medium'] +'"/>';
     imageDiv.appendChild(image);
 
     // Text
@@ -53,7 +53,7 @@ function createStreamDiv(streamData){
     title.innerText = twitch['channel']['display_name'];
     textDiv.appendChild(title);
     var nameAndViewers = document.createElement("P");
-    nameAndViewers.innerText = twitch['game'] + " - " + twitch['viewers'];
+    nameAndViewers.innerText = twitch['game'] + " - " + twitch['viewers'] + " viewers";
     textDiv.appendChild(nameAndViewers);
     document.getElementById('streams').appendChild(streamDiv);
     document.getElementById('streams').appendChild(linebreak);
