@@ -20,7 +20,7 @@ var currentSearchURL = "";
 var totalPages = 0;
 
 function decreasePage(){
-	if( currentSearchURL != "" && currentOffset > 10 )
+	if( currentSearchURL != "" && currentOffset >= 10 )
 	{
 		currentOffset -= 10;
 		changePage();
@@ -64,12 +64,7 @@ function populate(jsonpObj){
     }
 
     var total = jsonpObj['_total'];
-    totalPages = total/10;
-    // Add a page for the left overs
-    if( total % 10 != 0 )
-    {
-    	totalPages += 1;
-    }
+    totalPages = Math.ceil( total/10 );
 
     document.getElementById('total').innerHTML = "Total results: " + total;
     document.getElementById('page').innerHTML = ((currentOffset / 10) + 1) + "/" + totalPages;
