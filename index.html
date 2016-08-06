@@ -95,6 +95,7 @@ function populate(jsonpObj){
  }
 
  function searchStreams() {
+ 	resetStreams();
  	currentOffset = 0;
  	// Set to lowercase and replace the spaces with %20
  	var search = document.getElementById('searchField').value.toLowerCase();
@@ -104,8 +105,6 @@ function populate(jsonpObj){
  	var dynamicScript = document.createElement("script");
 	dynamicScript.src = baseURL + currentSearchURL + callbackURL;
 	document.getElementById('streams').appendChild(dynamicScript);
-
-	resetStreams();
  }
 
 </script>
