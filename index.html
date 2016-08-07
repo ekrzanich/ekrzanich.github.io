@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<style>
+	p.underlined {border-style: none none dotted none;}
+	h1.underlined {border-style: none none dotted none;}
+	div.block {border-style: solid;}
+	</style>
+</head>
 <body>
 
-	<input type="text" id="searchField" placeholder="Search query...">
-	<button onclick="searchStreams()">Search</button> </br>
+	<div id="topSearch" class="block">
+		<input type="text" id="searchField" placeholder="Search query...">
+		<button onclick="searchStreams()">Search</button> </br>
+	</div>
 
-	<p id="total"></p>
-	<button onclick="decreasePage()">Prev</button>
-	<p id="page">1/1</p>
-	<button onclick="increasePage()">Next</button> </br>
-	<div id="streams" align = "center"></div>
+	<div id="content" class="block">
+		<p id="total"></p>
+		<button onclick="decreasePage()">Prev</button>
+		<p id="page">1/1</p>
+		<button onclick="increasePage()">Next</button> </br>
+		<div id="streams" align = "center"></div>
+	</div>
 
 <script id="updateSearch">
 
@@ -51,8 +62,10 @@ function createStreamDiv(streamData){
     streamDiv.appendChild(textDiv);
     var title = document.createElement("H1");
     title.innerText = twitch['channel']['display_name'];
+    title.class = "underlined";
     textDiv.appendChild(title);
     var nameAndViewers = document.createElement("P");
+    nameAndViewers.class = "underlined";
     nameAndViewers.innerText = twitch['game'] + " - " + twitch['viewers'] + " viewers";
     textDiv.appendChild(nameAndViewers);
     document.getElementById('streams').appendChild(streamDiv);
