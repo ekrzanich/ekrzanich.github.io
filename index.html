@@ -73,12 +73,10 @@ function createStreamDiv(streamData){
 	var linebreak = document.createElement("br");
     streamDiv.className = "streamBlock";
     // Image
-    var imageDiv = document.createElement("div");
-    imageDiv.className = "streamImage";
-    streamDiv.appendChild(imageDiv);
-    var image = document.createElement("P");
-    image.innerHTML = '<p><img src = "' + twitch['preview']['small'] +'"/>';
-    imageDiv.appendChild(image);
+    var image = document.createElement("image");
+    image.src = twitch['preview']['small'];
+    image.className = "streamImage";
+    streamDiv.appendChild(image);
 
     // Text
     var textDiv = document.createElement("div");
