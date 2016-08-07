@@ -6,9 +6,17 @@
 	h1.underlined {border-style: none none dotted none;}
 	div.block {
 		border-style: solid;
-		padding-left: 50px;
+		padding-left: 25px;
 		margin-left: 100px;
 		margin-right: 100px;
+	}
+	div.streamImage {
+		padding-left: 15px;
+		float: left;
+	}
+	div.streamText {
+		padding-left: 15px;
+		float: left;
 	}
 	</style>
 </head>
@@ -57,6 +65,7 @@ function createStreamDiv(streamData){
     streamDiv.className = "stream-div";
     // Image
     var imageDiv = document.createElement("div");
+    imageDiv.class = "streamImage";
     streamDiv.appendChild(imageDiv);
     var image = document.createElement("P");
     image.innerHTML = '<p><img src = "' + twitch['preview']['medium'] +'"/>';
@@ -64,6 +73,7 @@ function createStreamDiv(streamData){
 
     // Text
     var textDiv = document.createElement("div");
+    textDiv.class = "streamText";
     streamDiv.appendChild(textDiv);
     var title = document.createElement("H1");
     title.innerText = twitch['channel']['display_name'];
