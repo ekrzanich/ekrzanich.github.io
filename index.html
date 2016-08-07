@@ -35,6 +35,20 @@
 	div.streamText {
 		padding-left: 15px;
 	}
+	div.arrowLeft {
+		width: 0; 
+		height: 0; 
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent;
+		border-right: 5px solid black;
+	}
+	div.arrowRight {
+		width: 0; 
+		height: 0; 
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent;
+		border-left: 5px solid black;
+	}
 	</style>
 </head>
 <body>
@@ -46,9 +60,9 @@
 
 	<div id="content" class="block">
 		<p id="total"></p>
-		<button onclick="decreasePage()">Prev</button>
+		<div class="arrowLeft" onclick="decreasePage()">Prev</button>
 		<p id="page">1/1</p>
-		<button onclick="increasePage()">Next</button> </br>
+		<div class="arrowRight" onclick="increasePage()">Next</button> </br>
 		<div id="streams" align = "center"></div>
 	</div>
 
