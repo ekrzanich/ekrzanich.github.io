@@ -65,7 +65,7 @@ function createStreamDiv(streamData){
     streamDiv.className = "stream-div";
     // Image
     var imageDiv = document.createElement("div");
-    imageDiv.class = "streamImage";
+    imageDiv.className = "streamImage";
     streamDiv.appendChild(imageDiv);
     var image = document.createElement("P");
     image.innerHTML = '<p><img src = "' + twitch['preview']['medium'] +'"/>';
@@ -73,14 +73,14 @@ function createStreamDiv(streamData){
 
     // Text
     var textDiv = document.createElement("div");
-    textDiv.class = "streamText";
+    textDiv.className = "streamText";
     streamDiv.appendChild(textDiv);
     var title = document.createElement("H1");
     title.innerText = twitch['channel']['display_name'];
-    title.class = "underlined";
+    title.className = "underlined";
     textDiv.appendChild(title);
     var nameAndViewers = document.createElement("P");
-    nameAndViewers.class = "underlined";
+    nameAndViewers.className = "underlined";
     nameAndViewers.innerText = twitch['game'] + " - " + twitch['viewers'] + " viewers";
     textDiv.appendChild(nameAndViewers);
     document.getElementById('streams').appendChild(streamDiv);
