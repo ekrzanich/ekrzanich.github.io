@@ -6,7 +6,7 @@
 		border-style: none none dotted none;
 		text-align: left;
 	}
-	h1.underlined {
+	h3.underlined {
 		border-style: none none dotted none;
 		text-align: left;
 	}
@@ -16,13 +16,16 @@
 		margin-left: 100px;
 		margin-right: 100px;
 	}
+	div.streamBlock {
+		position: relative;
+		margin: 0 auto;
+	}
 	div.streamImage {
 		padding-left: 15px;
 		float: left;
 	}
 	div.streamText {
 		padding-left: 15px;
-		position: relative;
 	}
 	</style>
 </head>
@@ -68,7 +71,7 @@ function increasePage(){
 function createStreamDiv(streamData){
 	var streamDiv = document.createElement("div");
 	var linebreak = document.createElement("br");
-    streamDiv.className = "stream-div";
+    streamDiv.className = "streamBlock";
     // Image
     var imageDiv = document.createElement("div");
     imageDiv.className = "streamImage";
@@ -81,7 +84,7 @@ function createStreamDiv(streamData){
     var textDiv = document.createElement("div");
     textDiv.className = "streamText";
     streamDiv.appendChild(textDiv);
-    var title = document.createElement("H1");
+    var title = document.createElement("H3");
     title.innerText = twitch['channel']['display_name'];
     title.className = "underlined";
     textDiv.appendChild(title);
