@@ -54,7 +54,7 @@
 	div.arrowRight {
 		position: relative;
 		display: inline-block;
-		float: left;
+		float: right;
 		margin-right: 10px; 
 		width: 0; 
 		height: 0; 
@@ -79,9 +79,10 @@
 
 	<div id="content" class="block">
 		<div id="total" class="pageDesc"></div>
+		<div class="arrowRight" onclick="increasePage()"></div> 
+		<div id="page" class="pageDesc" float="right"></div>
 		<div class="arrowLeft" onclick="decreasePage()"></div>
-		<div id="page" class="pageDesc" float="left"></div>
-		<div class="arrowRight" onclick="increasePage()"></div> </br>
+		</br>
 		<div id="streams" align = "left" clear="left"></div>
 	</div>
 
