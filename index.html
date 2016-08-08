@@ -63,9 +63,17 @@
 		border-bottom: 5px solid transparent;
 		border-left: 5px solid black;
 	}
-	div.pageDesc {
+	div.totalText {
 		position: relative;
 		display: inline-block;
+		float: left;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	div.pageText {
+		position: relative;
+		display: inline-block;
+		float: right;
 		padding-left: 5px;
 		padding-right: 5px;
 	}
@@ -79,12 +87,12 @@
 	</div>
 
 	<div id="content" class="block">
-		<div id="total" class="pageDesc" float="left"></div>
+		<div id="total" class="totalText"></div>
 		<div class="arrowRight" onclick="increasePage()"></div> 
-		<div id="page" class="pageDesc" clear="left" float="right">1/1</div>
+		<div id="page" class="pageText">1/1</div>
 		<div class="arrowLeft" onclick="decreasePage()"></div>
 		</br>
-		<div id="streams" align = "left" clear="left"></div>
+		<div id="streams" align="left" clear="both"></div>
 	</div>
 
 <script id="updateSearch">
