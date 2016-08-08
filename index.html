@@ -236,8 +236,8 @@ function populate(jsonpObj){
 		dynamicScript.src = "Blahblahblah";
 		document.getElementById('streams').appendChild(dynamicScript);
 	}
-	catch {
-		alert("Error: Please try again");
+	catch(err) {
+		alert("Error: " + err);
 	}
  }
 
