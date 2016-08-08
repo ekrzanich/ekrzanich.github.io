@@ -2,7 +2,7 @@
 <html>
 <head>
 	<style>
-	h2.underlined {
+	h1.underlined {
 		border-style: none none dotted none;
 		border-width: 1px;
 		border-color: lightgrey;
@@ -141,7 +141,7 @@ function createStreamDiv(streamData){
     var imageDiv = document.createElement("div");
     imageDiv.className = "streamImage";
     var image = document.createElement("img");
-    var imagePath = twitch['preview']['template'].replace("{width}", "100").replace("{height}", "100");
+    var imagePath = twitch['preview']['template'].replace("{width}", "200").replace("{height}", "200");
     image.src = imagePath;
     imageDiv.appendChild(image);
     streamDiv.appendChild(imageDiv);
@@ -150,7 +150,7 @@ function createStreamDiv(streamData){
     var textDiv = document.createElement("div");
     textDiv.className = "streamText";
     streamDiv.appendChild(textDiv);
-    var title = document.createElement("H2");
+    var title = document.createElement("H1");
     title.innerText = twitch['channel']['display_name'];
     title.className = "underlined";
     textDiv.appendChild(title);
