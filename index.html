@@ -33,7 +33,7 @@
 	div.streamBlock {
 		clear: both;
 		margin: 0 auto;
-		padding: 15px;
+		padding: 5px;
 	}
 	div.streamImage {
 		position: relative;
@@ -129,7 +129,7 @@ function createStreamDiv(streamData){
     streamDiv.className = "streamBlock";
     // Image
     var image = document.createElement("img");
-    image.src = twitch['preview']['small'];
+    image.src = twitch['preview']['medium'];
     image.className = "streamImage";
     streamDiv.appendChild(image);
 
