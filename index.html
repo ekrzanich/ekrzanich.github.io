@@ -188,6 +188,8 @@ function createStreamDisplay(streamData){
 }
 
 function populate(jsonpObj){
+	if( '_streams' in jsonpObj )
+	{
     var len = jsonpObj.streams.length;
     for(var i=0;i<len;i++){
         twitch = jsonpObj.streams[i];
@@ -199,6 +201,11 @@ function populate(jsonpObj){
 
     document.getElementById('total').innerHTML = "Total results: " + total;
     document.getElementById('page').innerHTML = ((currentOffset / 10) + 1) + "/" + totalPages;
+	}
+	else
+	{
+		alert("No streams found");
+	}
  }
 
  function resetStreams(){
@@ -223,10 +230,15 @@ function populate(jsonpObj){
  	currentSearchURL = "q=" + search.replace(/ /g, "%20");
 
  	// Create a new script to call the populate function
- 	var dynamicScript = document.createElement("script");
-	//dynamicScript.src = baseURL + currentSearchURL + callbackURL;
-	dynamicScript.src = "Blahblahblah";
-	document.getElementById('streams').appendChild(dynamicScript);
+ 	try {
+	 	var dynamicScript = document.createElement("script");
+		//dynamicScript.src = baseURL + currentSearchURL + callbackURL;
+		dynamicScript.src = "Blahblahblah";
+		document.getElementById('streams').appendChild(dynamicScript);
+	}
+	catch {
+		alert("Error: Please try again");
+	}
  }
 
 </script>
