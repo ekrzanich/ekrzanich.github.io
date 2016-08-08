@@ -2,13 +2,13 @@
 <html>
 <head>
 	<style>
-	h3.underlined {
+	h2.underlined {
 		border-style: none none dotted none;
 		border-width: 1px;
 		border-color: lightgrey;
 		text-align: left;
-		margin: 0px;
-		padding: 0px;
+		margin-top: 0px;
+		padding-top: 0px;
 	}
 	p.underlined {
 		border-style: none none dotted none;
@@ -20,17 +20,6 @@
 		padding: 0px;
 		max-height: 30px;
 		overflow: hidden;
-	}
-	p.steamDesc {
-		border-style: none none dotted none;
-		border-width: 1px;
-		border-color: lightgrey;
-		text-align: left;
-		
-		font-size: 90%;
-		
-		margin-top: 0px;
-		padding-top: 0px;
 	}
 	div.block {
 		border: 1px solid;
@@ -159,7 +148,7 @@ function createStreamDiv(streamData){
     var textDiv = document.createElement("div");
     textDiv.className = "streamText";
     streamDiv.appendChild(textDiv);
-    var title = document.createElement("H3");
+    var title = document.createElement("H2");
     title.innerText = twitch['channel']['display_name'];
     title.className = "underlined";
     textDiv.appendChild(title);
