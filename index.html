@@ -159,7 +159,7 @@ function createStreamDiv(streamData){
     textDiv.appendChild(nameAndViewers);
     var streamDescription = document.createElement("P");
     streamDescription.className = "underlined";
-    streamDescription.innerText = twtich['channel']['status'];
+    streamDescription.innerText = twitch['channel']['status'];
     textDiv.appendChild(streamDescription);
     document.getElementById('streams').appendChild(streamDiv);
     streamDiv.clear
