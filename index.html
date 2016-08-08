@@ -49,11 +49,19 @@
 		border-right: 5px solid black;
 	}
 	div.arrowRight {
+		position: relative;
+		float: left;
 		width: 0; 
 		height: 0; 
 		border-top: 5px solid transparent;
 		border-bottom: 5px solid transparent;
 		border-left: 5px solid black;
+	}
+	div.pageDesc {
+		position: relative;
+		float: left;
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 	</style>
 </head>
@@ -65,10 +73,10 @@
 	</div>
 
 	<div id="content" class="block">
-		<div id="total" float="left" position="relative"></div>
-		<div class="arrowLeft" onclick="decreasePage()" float="left" position="relative"></div>
-		<div id="page" float="left" position="relative"></div>
-		<div class="arrowRight" onclick="increasePage()" float="left" position="relative"></div> </br>
+		<div id="total" class="pageDesc"></div>
+		<div class="arrowLeft" onclick="decreasePage()"></div>
+		<div id="page" class="pageDesc"></div>
+		<div class="arrowRight" onclick="increasePage()"></div> </br>
 		<div id="streams" align = "left" clear="left"></div>
 	</div>
 
