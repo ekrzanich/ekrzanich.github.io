@@ -18,15 +18,19 @@
 		font-size: 90%;
 		margin: 0px;
 		padding: 0px;
+		max-height: 30px;
+		overflow: hidden;
 	}
 	p.steamDesc {
 		border-style: none none dotted none;
 		border-width: 1px;
 		border-color: lightgrey;
 		text-align: left;
-		overflow: hidden;
+		
 		font-size: 90%;
-		max-height: 30px;
+		
+		margin-top: 0px;
+		padding-top: 0px;
 	}
 	div.block {
 		border: 1px solid;
@@ -164,7 +168,7 @@ function createStreamDiv(streamData){
     nameAndViewers.innerText = twitch['game'] + " - " + twitch['viewers'] + " viewers";
     textDiv.appendChild(nameAndViewers);
     var streamDescription = document.createElement("P");
-    streamDescription.className = "steamDesc";
+    streamDescription.className = "underlined";
     streamDescription.innerText = "Stream Description text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text";
     textDiv.appendChild(streamDescription);
     document.getElementById('streams').appendChild(streamDiv);
