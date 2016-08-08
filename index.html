@@ -188,7 +188,7 @@ function createStreamDisplay(streamData){
 }
 
 function populate(jsonpObj){
-	if( '_streams' in jsonpObj )
+	if( jsonpObj.hasOwnProperty('streams') )
 	{
     var len = jsonpObj.streams.length;
     for(var i=0;i<len;i++){
