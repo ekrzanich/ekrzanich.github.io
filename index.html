@@ -190,17 +190,17 @@ function createStreamDisplay(streamData){
 function populate(jsonpObj){
 	if( jsonpObj.hasOwnProperty('streams') )
 	{
-    var len = jsonpObj.streams.length;
-    for(var i=0;i<len;i++){
-        twitch = jsonpObj.streams[i];
-        createStreamDisplay(twitch);
-    }
+	    var len = jsonpObj.streams.length;
+	    for(var i=0;i<len;i++){
+	        twitch = jsonpObj.streams[i];
+	        createStreamDisplay(twitch);
+	    }
 
-    var total = jsonpObj['_total'];
-    totalPages = Math.ceil( total/10 );
+	    var total = jsonpObj['_total'];
+	    totalPages = Math.ceil( total/10 );
 
-    document.getElementById('total').innerHTML = "Total results: " + total;
-    document.getElementById('page').innerHTML = ((currentOffset / 10) + 1) + "/" + totalPages;
+	    document.getElementById('total').innerHTML = "Total results: " + total;
+	    document.getElementById('page').innerHTML = ((currentOffset / 10) + 1) + "/" + totalPages;
 	}
 	else
 	{
