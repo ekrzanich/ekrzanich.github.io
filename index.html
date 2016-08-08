@@ -55,6 +55,11 @@
 		border-bottom: 5px solid transparent;
 		border-left: 5px solid black;
 	}
+	p.smallWidth {
+		width: 50px;
+		height: 15px;
+		font-size: 75%;
+	}
 	</style>
 </head>
 <body>
@@ -65,10 +70,10 @@
 	</div>
 
 	<div id="content" class="block">
-		<p id="total" width="100" display="inline"></p>
-		<div class="arrowLeft" onclick="decreasePage()" display="inline"></div>
-		<p id="page" width="50" display="inline"></p>
-		<div class="arrowRight" onclick="increasePage()" display="inline"></div> </br>
+		<p class="smallWidth" id="total" display="inline-block"></p>
+		<div class="arrowLeft" onclick="decreasePage()" display="inline-block"></div>
+		<p class="smallWidth" id="page" display="inline-block"></p>
+		<div class="arrowRight" onclick="increasePage()" display="inline-block"></div> </br>
 		<div id="streams" align = "left"></div>
 	</div>
 
