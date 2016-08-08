@@ -138,6 +138,7 @@ function increasePage(){
 function createStreamElement(elementType, className="") {
 	var streamElement = document.createElement( elementType );
 	streamElement.className = className;
+	
 	return streamElement;
 }
 
@@ -147,6 +148,8 @@ function createStreamImageDiv(streamData) {
     var imagePath = twitch['preview']['template'].replace("{width}", "100").replace("{height}", "100");
     image.src = imagePath;
     imageDiv.appendChild(image);
+
+    return imageDiv;
 }
 
 function createStreamTextDiv(streamData) {
