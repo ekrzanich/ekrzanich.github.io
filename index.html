@@ -26,8 +26,8 @@
 		border: 1px solid;
 		border-top: none;
 		padding-left: 25px;
-		margin-left: 20%;
-		margin-right: 20%;
+		margin-left: 15%;
+		margin-right: 15%;
 	}
 	div.topBlock {
 		border: 1px solid;
@@ -35,8 +35,8 @@
 		padding-left: 25px;
 		padding-top: 50px;
 		padding-bottom: 25px;
-		margin-left: 20%;
-		margin-right: 20%;
+		margin-left: 15%;
+		margin-right: 15%;
 	}
 	div.streamBlock {
 		clear: both;
@@ -159,7 +159,7 @@ function createStreamDiv(streamData){
     textDiv.appendChild(nameAndViewers);
     var streamDescription = document.createElement("P");
     streamDescription.className = "underlined";
-    streamDescription.innerText = "Stream Description text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text";
+    streamDescription.innerText = twtich['channel']['status'];
     textDiv.appendChild(streamDescription);
     document.getElementById('streams').appendChild(streamDiv);
     streamDiv.clear
