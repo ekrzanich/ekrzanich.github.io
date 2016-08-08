@@ -42,15 +42,15 @@
 		padding-left: 15px;
 	}
 	div.arrowLeft {
-		width: 5px; 
-		height: 5px; 
+		width: 3px; 
+		height: 3px; 
 		border-top: 5px solid transparent;
 		border-bottom: 5px solid transparent;
 		border-right: 5px solid black;
 	}
 	div.arrowRight {
-		width: 5px; 
-		height: 5px; 
+		width: 3px; 
+		height: 3px; 
 		border-top: 5px solid transparent;
 		border-bottom: 5px solid transparent;
 		border-left: 5px solid black;
@@ -65,10 +65,12 @@
 	</div>
 
 	<div id="content" class="block">
-		<p id="total"></p>
-		<div class="arrowLeft" onclick="decreasePage()" float="left"></div>
-		<p id="page" float="left" width="100px"></p>
-		<div class="arrowRight" onclick="increasePage()" float="left"></div> </br>
+		<div float="left">
+			<p id="total" width="100px"></p>
+			<div class="arrowLeft" onclick="decreasePage()"></div>
+			<p id="page" width="50px"></p>
+			<div class="arrowRight" onclick="increasePage()"></div> </br>
+		</div>
 		<div id="streams" align = "left"></div>
 	</div>
 
