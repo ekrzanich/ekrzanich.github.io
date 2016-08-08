@@ -19,6 +19,7 @@
 		font-size: 90%;
 		margin: 0px;
 		padding: 0px;
+		padding-left: 5px;
 		max-height: 2.5em;
 		overflow: hidden;
 	}
@@ -134,12 +135,20 @@ function increasePage(){
 	}
 }
 
-function createStreamDiv(streamData){
-	var streamDiv = document.createElement("div");
-    streamDiv.className = "streamBlock";
+function createStreamElement(elementType, className="") {
+	var streamElement = document.createElement( elementType );
+	streamElement.className = className;
+	return streamElement;
+}
+
+function createStreamDisplay(streamData){
+	// var streamDiv = document.createElement("div");
+ //    streamDiv.className = "streamBlock";
+ 	var streamDiv = createStreamElement( "div", "streamBlock");
     // Image
-    var imageDiv = document.createElement("div");
-    imageDiv.className = "streamImage";
+    // var imageDiv = document.createElement("div");
+    // imageDiv.className = "streamImage";
+    var imageDiv = createStreamElement( "div", "streamImage");
     var image = document.createElement("img");
     var imagePath = twitch['preview']['template'].replace("{width}", "100").replace("{height}", "100");
     image.src = imagePath;
@@ -147,19 +156,23 @@ function createStreamDiv(streamData){
     streamDiv.appendChild(imageDiv);
 
     // Text
-    var textDiv = document.createElement("div");
-    textDiv.className = "streamText";
+    // var textDiv = document.createElement("div");
+    // textDiv.className = "streamText";
+    var textDiv = createStreamElement( "div", "streamText" );
     streamDiv.appendChild(textDiv);
-    var title = document.createElement("H2");
+    // var title = document.createElement("H2");
+    var title = createStreamElement( "H2", "underlined" );
     title.innerText = twitch['channel']['display_name'];
-    title.className = "underlined";
+    // title.className = "underlined";
     textDiv.appendChild(title);
-    var nameAndViewers = document.createElement("P");
-    nameAndViewers.className = "underlined";
+    // var nameAndViewers = document.createElement("P");
+    // nameAndViewers.className = "underlined";
+    var nameAndViewers = createStreamElement( "P", "underlined" );
     nameAndViewers.innerText = twitch['game'] + " - " + twitch['viewers'] + " viewers";
     textDiv.appendChild(nameAndViewers);
-    var streamDescription = document.createElement("P");
-    streamDescription.className = "underlined";
+    // var streamDescription = document.createElement("P");
+    // streamDescription.className = "underlined";
+    var streamDescription = createStreamElement( "P", "underlined" );
     streamDescription.innerText = twitch['channel']['status'];
     textDiv.appendChild(streamDescription);
     document.getElementById('streams').appendChild(streamDiv);
