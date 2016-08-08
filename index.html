@@ -232,8 +232,7 @@ function populate(jsonpObj){
  	// Create a new script to call the populate function
  	try {
 	 	var dynamicScript = document.createElement("script");
-		//dynamicScript.src = baseURL + currentSearchURL + callbackURL;
-		dynamicScript.src = "Blahblahblah";
+		dynamicScript.src = baseURL + currentSearchURL + callbackURL;
 		document.getElementById('streams').appendChild(dynamicScript);
 	}
 	catch(err) {
