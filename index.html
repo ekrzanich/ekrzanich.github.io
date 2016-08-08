@@ -139,11 +139,13 @@ function createStreamDiv(streamData){
 	var streamDiv = document.createElement("div");
     streamDiv.className = "streamBlock";
     // Image
+    var imageDiv = document.createElement("div");
+    imageDiv.className = "streamImage";
     var image = document.createElement("img");
     var imagePath = twitch['preview']['template'].replace("{width}", "100").replace("{height}", "100");
     image.src = imagePath;
-    image.className = "streamImage";
-    streamDiv.appendChild(image);
+    imageDiv.appendChild(image);
+    streamDiv.appendChild(imageDiv);
 
     // Text
     var textDiv = document.createElement("div");
