@@ -183,7 +183,7 @@ function populate(jsonpObj){
     var len = jsonpObj.streams.length;
     for(var i=0;i<len;i++){
         twitch = jsonpObj.streams[i];
-        createStreamDiv(twitch);
+        createStreamDisplay(twitch);
     }
 
     var total = jsonpObj['_total'];
