@@ -129,8 +129,7 @@ function createStreamDiv(streamData){
     streamDiv.className = "streamBlock";
     // Image
     var image = document.createElement("img");
-    var imagePath = twitch['preview']['template'].replace("{width}", "100");
-    imagePath = imagePath.replace("{height}", "100")
+    var imagePath = twitch['preview']['template'].replace("{width}", "150").replace("{height}", "150");
     image.src = imagePath;
     image.className = "streamImage";
     streamDiv.appendChild(image);
