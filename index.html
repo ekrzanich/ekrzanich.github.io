@@ -141,42 +141,63 @@ function createStreamElement(elementType, className="") {
 	return streamElement;
 }
 
-function createStreamDisplay(streamData){
-	// var streamDiv = document.createElement("div");
- //    streamDiv.className = "streamBlock";
- 	var streamDiv = createStreamElement( "div", "streamBlock");
-    // Image
-    // var imageDiv = document.createElement("div");
-    // imageDiv.className = "streamImage";
-    var imageDiv = createStreamElement( "div", "streamImage");
+function createStreamImageDiv(streamData) {
+	var imageDiv = createStreamElement( "div", "streamImage");
     var image = document.createElement("img");
     var imagePath = twitch['preview']['template'].replace("{width}", "100").replace("{height}", "100");
     image.src = imagePath;
     imageDiv.appendChild(image);
-    streamDiv.appendChild(imageDiv);
+}
 
-    // Text
-    // var textDiv = document.createElement("div");
-    // textDiv.className = "streamText";
-    var textDiv = createStreamElement( "div", "streamText" );
-    streamDiv.appendChild(textDiv);
-    // var title = document.createElement("H2");
+function createStreamTextDiv(streamData) {
+	var textDiv = createStreamElement( "div", "streamText" );
+    
+    // Stream Header
     var title = createStreamElement( "H2", "underlined" );
     title.innerText = twitch['channel']['display_name'];
-    // title.className = "underlined";
     textDiv.appendChild(title);
-    // var nameAndViewers = document.createElement("P");
-    // nameAndViewers.className = "underlined";
+
+    // Game and Viewers
     var nameAndViewers = createStreamElement( "P", "underlined" );
     nameAndViewers.innerText = twitch['game'] + " - " + twitch['viewers'] + " viewers";
     textDiv.appendChild(nameAndViewers);
-    // var streamDescription = document.createElement("P");
-    // streamDescription.className = "underlined";
+
+    // Description
     var streamDescription = createStreamElement( "P", "underlined" );
     streamDescription.innerText = twitch['channel']['status'];
     textDiv.appendChild(streamDescription);
+
+    return textDiv;
+}
+
+function createStreamDisplay(streamData){
+ 	var streamDiv = createStreamElement( "div", "streamBlock");
+    // Image
+    // var imageDiv = createStreamElement( "div", "streamImage");
+    // var image = document.createElement("img");
+    // var imagePath = twitch['preview']['template'].replace("{width}", "100").replace("{height}", "100");
+    // image.src = imagePath;
+    // imageDiv.appendChild(image);
+    var imageDiv = createStreamImageDiv( twitch );
+    streamDiv.appendChild(imageDiv);
+
+    // Text
+    // var textDiv = createStreamElement( "div", "streamText" );
+    // streamDiv.appendChild(textDiv);
+    // var title = createStreamElement( "H2", "underlined" );
+    // title.innerText = twitch['channel']['display_name'];
+    // textDiv.appendChild(title);
+    // var nameAndViewers = createStreamElement( "P", "underlined" );
+    // nameAndViewers.innerText = twitch['game'] + " - " + twitch['viewers'] + " viewers";
+    // textDiv.appendChild(nameAndViewers);
+    // var streamDescription = createStreamElement( "P", "underlined" );
+    // streamDescription.innerText = twitch['channel']['status'];
+    // textDiv.appendChild(streamDescription);
+    var textDiv = createStreamTextDiv( twitch );
+    streamDiv.appendChild(textDiv);
+
     document.getElementById('streams').appendChild(streamDiv);
-    streamDiv.clear
+    //streamDiv.clear
 }
 
 function populate(jsonpObj){
